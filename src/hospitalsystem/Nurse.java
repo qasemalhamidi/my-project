@@ -8,27 +8,25 @@ public class Nurse extends Employee {
         this.shift = shift;
     }
 
-    public String getShift() { return shift; }
-    public void setShift(String shift) { this.shift = shift; }
+    public String getShift()        { return shift; }
+    public void setShift(String s)  { this.shift = s; }
 
-    @Override
-    public String getRole() { return "Nurse"; }
+    @Override public String getRole() { return "Nurse"; }
 
     @Override
     public double calculateSalary() {
-        double bonus = shift.equalsIgnoreCase("Night") ? baseSalary * 0.10 : 0;
-        return baseSalary + bonus;
+        return baseSalary + (shift.equalsIgnoreCase("Night") ? baseSalary * 0.10 : 0);
     }
 
     @Override
     public void displayInfo() {
-        System.out.println("Nurse | ID=" + getId() + ", Name=" + getName()
-                + ", Shift=" + shift + ", Salary=" + calculateSalary());
+        System.out.println("Nurse | " + getName() + " | " + shift
+                + " shift | Salary: " + String.format(java.util.Locale.US,"%.2f", calculateSalary()));
     }
 
     @Override
     public String toTableRow() {
-        return getId() + " | " + getName() + " | Nurse | " + shift + " shift | - | "
-                + String.format("%.2f", calculateSalary());
+        return getId() + " | " + getName() + " | Nurse | " + shift
+                + " | - | " + String.format(java.util.Locale.US,"%.2f", calculateSalary());
     }
 }

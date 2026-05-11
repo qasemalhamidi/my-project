@@ -10,9 +10,9 @@ public abstract class Employee extends Person implements SalaryCalculator {
         this.department = department;
     }
 
-    public double getBaseSalary() { return baseSalary; }
-    public void setBaseSalary(double baseSalary) { this.baseSalary = baseSalary; }
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
+    public double getBaseSalary()           { return baseSalary; }
+    public void setBaseSalary(double s)     { this.baseSalary = s; }
+    public String getDepartment()           { return department; }
+    public void setDepartment(String d)     { this.department = d; }
     public abstract String getRole();
 }

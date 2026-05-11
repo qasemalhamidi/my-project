@@ -4,19 +4,19 @@ public class Doctor extends Employee {
     private String specialization;
     private int yearsOfExperience;
 
-    public Doctor(String specialization, int yearsOfExperience, double baseSalary, int id, String name, int age, String department) {
+    public Doctor(String specialization, int yearsOfExperience,
+                  double baseSalary, int id, String name, int age, String department) {
         super(baseSalary, id, name, age, department);
-        this.specialization = specialization;
+        this.specialization   = specialization;
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public String getSpecialization() { return specialization; }
-    public void setSpecialization(String s) { this.specialization = s; }
-    public int getYearsOfExperience() { return yearsOfExperience; }
-    public void setYearsOfExperience(int y) { this.yearsOfExperience = y; }
+    public String getSpecialization()        { return specialization; }
+    public void setSpecialization(String s)  { this.specialization = s; }
+    public int getYearsOfExperience()        { return yearsOfExperience; }
+    public void setYearsOfExperience(int y)  { this.yearsOfExperience = y; }
 
-    @Override
-    public String getRole() { return "Doctor"; }
+    @Override public String getRole() { return "Doctor"; }
 
     @Override
     public double calculateSalary() {
@@ -25,13 +25,14 @@ public class Doctor extends Employee {
 
     @Override
     public void displayInfo() {
-        System.out.println("Doctor | ID=" + getId() + ", Name=" + getName()
-                + ", Spec=" + specialization + ", Salary=" + calculateSalary());
+        System.out.println("Doctor | " + getName() + " | " + specialization
+                + " | Salary: " + String.format(java.util.Locale.US,"%.2f", calculateSalary()));
     }
 
     @Override
     public String toTableRow() {
         return getId() + " | " + getName() + " | Doctor | " + specialization
-                + " | " + yearsOfExperience + " yrs | " + String.format("%.2f", calculateSalary());
+                + " | " + yearsOfExperience + " yrs | "
+                + String.format(java.util.Locale.US,"%.2f", calculateSalary());
     }
 }
